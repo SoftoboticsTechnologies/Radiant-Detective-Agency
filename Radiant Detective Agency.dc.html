@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #f7f3ea; font-family: Karla, Helvetica, Arial, sans-serif; }
+  * { box-sizing: border-box; }
+  a { color: #a8862b; text-decoration: none; }
+  a:hover { color: #7d6420; }
+  ul { margin: 0; }
+  input, textarea, button { font-family: Karla, Helvetica, Arial, sans-serif; }
+</style>
+</helmet>
+<div style="width:100%;color:#1b2130">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(8,13,24,0.96);borderBottom:1px solid rgba(201,162,39,0.35);backdrop-filter:blur(6px)">
+    <div style="position:relative;max-width:1200px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <a href="#top" style="display:flex;align-items:center;gap:12px;color:#f2ecdd">
+        <span style="width:44px;height:44px;flex:none;border-radius:50%;border:2px solid #c9a227;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 25%, #1b2438, #0a0f1a)">
+          <span style="width:20px;height:20px;border-radius:50%;border:2px solid #c9a227;display:flex;align-items:center;justify-content:center">
+            <span style="width:6px;height:6px;background:#c9a227;border-radius:50%"></span>
+          </span>
+        </span>
+        <span style="font-family:Marcellus,Georgia,serif;font-size:19px;letter-spacing:0.06em;line-height:1.15">Radiant Detective Agency</span>
+      </a>
+      <sc-if value="{{ showBurger }}" hint-placeholder-val="{{ false }}">
+        <button type="button" onClick="{{ toggleMenu }}" aria-label="Menu" style="background:transparent;border:1px solid rgba(201,162,39,0.5);color:#c9a227;font-size:22px;line-height:1;width:46px;height:46px;cursor:pointer;flex:none">{{ burgerLabel }}</button>
+      </sc-if>
+      <nav style="{{ navStyle }}">
+        <a href="#about" onClick="{{ closeMenu }}" style="color:#ded8c9;font-size:14px;letter-spacing:0.12em;text-transform:uppercase;padding:12px 0" style-hover="color:#c9a227">About</a>
+        <a href="#services" onClick="{{ closeMenu }}" style="color:#ded8c9;font-size:14px;letter-spacing:0.12em;text-transform:uppercase;padding:12px 0" style-hover="color:#c9a227">Services</a>
+        <a href="#achievements" onClick="{{ closeMenu }}" style="color:#ded8c9;font-size:14px;letter-spacing:0.12em;text-transform:uppercase;padding:12px 0" style-hover="color:#c9a227">Achievements</a>
+        <a href="#contact" onClick="{{ closeMenu }}" style="color:#0a0f1a;background:#c9a227;padding:12px 20px;font-size:14px;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;text-align:center" style-hover="background:#e0b93c">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="top" style="background:linear-gradient(rgba(6,10,18,0.86), rgba(6,10,18,0.94)), repeating-linear-gradient(135deg, #101724 0px, #101724 6px, #0b1220 6px, #0b1220 12px);color:#f2ecdd;padding:120px 20px 130px">
+    <div style="max-width:900px;margin:0 auto;text-align:center;display:grid;gap:26px;justify-items:center">
+      <span style="font-size:13px;letter-spacing:0.34em;text-transform:uppercase;color:#c9a227">Private Investigation, Since 2006</span>
+      <h1 style="font-family:Marcellus,Georgia,serif;font-size:clamp(40px,7vw,74px);line-height:1.05;margin:0;font-weight:400">Radiant Detective Agency</h1>
+      <div style="width:90px;height:2px;background:#c9a227"></div>
+      <p style="font-family:Marcellus,Georgia,serif;font-size:clamp(20px,3vw,30px);color:#c9a227;margin:0;line-height:1.35">Your Trusted Eyes When It Matters Most.</p>
+      <p style="font-size:18px;color:#c6c0b2;margin:0;max-width:560px;line-height:1.6">Trusted private investigation services since 2006.</p>
+      <a href="#contact" style="margin-top:8px;background:#c9a227;color:#0a0f1a;padding:16px 40px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;font-size:14px" style-hover="background:#e0b93c">Contact Us</a>
+    </div>
+  </section>
+
+  <section id="about" style="background:#f7f3ea;padding:100px 20px">
+    <div style="max-width:860px;margin:0 auto">
+      <span style="font-size:13px;letter-spacing:0.3em;text-transform:uppercase;color:#a8862b">About</span>
+      <h2 style="font-family:Marcellus,Georgia,serif;font-size:clamp(30px,4.4vw,46px);line-height:1.15;margin:14px 0 0;font-weight:400;color:#131a28">About Radiant Detective Agency</h2>
+      <div style="width:70px;height:2px;background:#c9a227;margin:26px 0 30px"></div>
+      <p style="font-size:19px;line-height:1.75;color:#3a4152;margin:0;text-wrap:pretty">Radiant Detective Agency stands as a trusted name in the field of private investigation, known for its professionalism, precision, and unwavering commitment to truth. Since day one in 2006, we have built a reputation for delivering clear, actionable results through ethical investigation methods and advanced surveillance techniques.</p>
+    </div>
+  </section>
+
+  <section id="services" style="background:#0b1220;color:#e6e1d6;padding:100px 20px">
+    <div style="max-width:1200px;margin:0 auto">
+      <span style="font-size:13px;letter-spacing:0.3em;text-transform:uppercase;color:#c9a227">Services</span>
+      <h2 style="font-family:Marcellus,Georgia,serif;font-size:clamp(30px,4.4vw,46px);line-height:1.15;margin:14px 0 0;font-weight:400">What We Do</h2>
+      <div style="width:70px;height:2px;background:#c9a227;margin:26px 0 30px"></div>
+      <p style="font-size:19px;line-height:1.75;color:#bdb7a8;margin:0 0 54px;max-width:820px;text-wrap:pretty">Radiant Detective Agency offers a comprehensive range of investigative services designed to bring clarity, confidence, and security to individuals as well as businesses.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
+        <a href="#detail-matrimonial" style="display:block;padding:30px 26px;background:#101827;border:1px solid rgba(201,162,39,0.28);color:#e6e1d6" style-hover="border-color:#c9a227;background:#141d2f">
+          <span style="font-family:Marcellus,Georgia,serif;font-size:26px;color:#c9a227">01</span>
+          <h3 style="font-family:Marcellus,Georgia,serif;font-size:22px;font-weight:400;margin:12px 0 10px;line-height:1.3">Pre and Post Matrimonial Investigations</h3>
+          <span style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#c9a227">Read details</span>
+        </a>
+        <a href="#detail-corporate" style="display:block;padding:30px 26px;background:#101827;border:1px solid rgba(201,162,39,0.28);color:#e6e1d6" style-hover="border-color:#c9a227;background:#141d2f">
+          <span style="font-family:Marcellus,Georgia,serif;font-size:26px;color:#c9a227">02</span>
+          <h3 style="font-family:Marcellus,Georgia,serif;font-size:22px;font-weight:400;margin:12px 0 10px;line-height:1.3">Corporate and Employee Background Checks</h3>
+          <span style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#c9a227">Read details</span>
+        </a>
+        <a href="#detail-surveillance" style="display:block;padding:30px 26px;background:#101827;border:1px solid rgba(201,162,39,0.28);color:#e6e1d6" style-hover="border-color:#c9a227;background:#141d2f">
+          <span style="font-family:Marcellus,Georgia,serif;font-size:26px;color:#c9a227">03</span>
+          <h3 style="font-family:Marcellus,Georgia,serif;font-size:22px;font-weight:400;margin:12px 0 10px;line-height:1.3">Surveillance and Evidence Collection</h3>
+          <span style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#c9a227">Read details</span>
+        </a>
+        <div style="padding:30px 26px;background:#101827;border:1px solid rgba(201,162,39,0.28)">
+          <span style="font-family:Marcellus,Georgia,serif;font-size:26px;color:#c9a227">04</span>
+          <h3 style="font-family:Marcellus,Georgia,serif;font-size:22px;font-weight:400;margin:12px 0 0;line-height:1.3">Missing Person Tracing</h3>
+        </div>
+        <div style="padding:30px 26px;background:#101827;border:1px solid rgba(201,162,39,0.28)">
+          <span style="font-family:Marcellus,Georgia,serif;font-size:26px;color:#c9a227">05</span>
+          <h3 style="font-family:Marcellus,Georgia,serif;font-size:22px;font-weight:400;margin:12px 0 0;line-height:1.3">Fraud, Cheating and Financial Investigation</h3>
+        </div>
+        <div style="padding:30px 26px;background:#101827;border:1px solid rgba(201,162,39,0.28)">
+          <span style="font-family:Marcellus,Georgia,serif;font-size:26px;color:#c9a227">06</span>
+          <h3 style="font-family:Marcellus,Georgia,serif;font-size:22px;font-weight:400;margin:12px 0 0;line-height:1.3">Cyber Investigation and Digital Footprint Analysis</h3>
+        </div>
+        <a href="#detail-tracing" style="display:block;padding:30px 26px;background:#101827;border:1px solid rgba(201,162,39,0.28);color:#e6e1d6" style-hover="border-color:#c9a227;background:#141d2f">
+          <span style="font-family:Marcellus,Georgia,serif;font-size:26px;color:#c9a227">07</span>
+          <h3 style="font-family:Marcellus,Georgia,serif;font-size:22px;font-weight:400;margin:12px 0 10px;line-height:1.3">Tracing Loan Defaulters and Recovery Support</h3>
+          <span style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#c9a227">Read details</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#f7f3ea;padding:100px 20px">
+    <div style="max-width:960px;margin:0 auto">
+      <span style="font-size:13px;letter-spacing:0.3em;text-transform:uppercase;color:#a8862b">Detail</span>
+      <h2 style="font-family:Marcellus,Georgia,serif;font-size:clamp(30px,4.4vw,46px);line-height:1.15;margin:14px 0 0;font-weight:400;color:#131a28">Service Details</h2>
+      <div style="width:70px;height:2px;background:#c9a227;margin:26px 0 40px"></div>
+
+      <div style="display:grid;gap:14px">
+
+        <div id="detail-matrimonial" style="border:1px solid #e0d8c4;background:#fffdf8;scroll-margin-top:96px">
+          <button type="button" onClick="{{ toggle1 }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:24px 26px;background:transparent;border:0;cursor:pointer;text-align:left" style-hover="background:#faf6ec">
+            <span style="font-family:Marcellus,Georgia,serif;font-size:clamp(19px,2.4vw,24px);color:#131a28;line-height:1.3">Pre and Post Matrimonial Investigations</span>
+            <span style="font-family:Marcellus,Georgia,serif;font-size:26px;color:#a8862b;flex:none">{{ sign1 }}</span>
+          </button>
+          <sc-if value="{{ open1 }}" hint-placeholder-val="{{ true }}">
+            <div style="padding:0 26px 30px;display:grid;gap:22px;font-size:17px;line-height:1.7;color:#3a4152;border-top:1px solid #eee5d1">
+              <p style="margin:22px 0 0;text-wrap:pretty">Matrimonial investigations are professional services used to verify the claims, character, and activities of a prospective partner or a current spouse. These are broadly categorized into Pre-Matrimonial (preventative) and Post-Matrimonial (corrective) investigations.</p>
+              <h4 style="font-family:Marcellus,Georgia,serif;font-size:20px;font-weight:400;color:#131a28;margin:0">1. Pre-Matrimonial Investigations</h4>
+              <p style="margin:0;text-wrap:pretty">The goal here is to establish a foundation of trust before "tying the knot." It is especially common in arranged marriages or relationships initiated through matrimonial websites.</p>
+              <div>
+                <p style="margin:0 0 10px;font-weight:700;color:#131a28">Key Focus Areas:</p>
+                <ul style="padding-left:20px;color:#c9a227;display:grid;gap:9px">
+                  <li><span style="color:#3a4152"><strong style="color:#131a28">Background Verification:</strong> Verifying education, current employment, and actual salary/position.</span></li>
+                  <li><span style="color:#3a4152"><strong style="color:#131a28">Family Reputation:</strong> Checking the social and economic standing of the family in their neighborhood or community.</span></li>
+                  <li><span style="color:#3a4152"><strong style="color:#131a28">Character and Lifestyle:</strong> Investigating habits like smoking, drinking, drug use, or gambling, as well as checking for hidden past or current relationships.</span></li>
+                  <li><span style="color:#3a4152"><strong style="color:#131a28">Financial Health:</strong> Assessing assets, liabilities (loans/debts), and the general financial stability of the individual and family.</span></li>
+                  <li><span style="color:#3a4152"><strong style="color:#131a28">Medical History:</strong> Uncovering chronic illnesses or mental health issues that might have been concealed.</span></li>
+                  <li><span style="color:#3a4152"><strong style="color:#131a28">Criminal Records:</strong> Searching for any past or pending legal cases/FIRs.</span></li>
+                </ul>
+              </div>
+              <h4 style="font-family:Marcellus,Georgia,serif;font-size:20px;font-weight:400;color:#131a28;margin:0">2. Post-Matrimonial Investigations</h4>
+              <p style="margin:0;text-wrap:pretty">These are typically conducted when trust has already been compromised within a marriage. They are often used as evidence for legal proceedings like divorce or alimony cases.</p>
+              <div>
+                <p style="margin:0 0 10px;font-weight:700;color:#131a28">Key Focus Areas:</p>
+                <ul style="padding-left:20px;color:#c9a227;display:grid;gap:9px">
+                  <li><span style="color:#3a4152"><strong style="color:#131a28">Infidelity (Adultery):</strong> Discreet surveillance to catch a cheating spouse, often involving photographic or video evidence.</span></li>
+                  <li><span style="color:#3a4152"><strong style="color:#131a28">Hidden Assets:</strong> Finding secret bank accounts, properties, or businesses, particularly during divorce settlements.</span></li>
+                  <li><span style="color:#3a4152"><strong style="color:#131a28">Abuse or Harassment:</strong> Documenting evidence of domestic violence or dowry related harassment.</span></li>
+                  <li><span style="color:#3a4152"><strong style="color:#131a28">Child Custody Support:</strong> Gathering evidence of a spouse's lifestyle or behavior to prove they are unfit for custody.</span></li>
+                  <li><span style="color:#3a4152"><strong style="color:#131a28">Suspicious Activities:</strong> Investigating sudden changes in routine, unexplained work hours, or secretive phone behavior.</span></li>
+                </ul>
+              </div>
+              <h4 style="font-family:Marcellus,Georgia,serif;font-size:20px;font-weight:400;color:#131a28;margin:0">How Investigations are Conducted</h4>
+              <p style="margin:0">We use a mix of on ground work and digital tools:</p>
+              <ul style="padding-left:20px;color:#c9a227;display:grid;gap:9px;margin:0">
+                <li><span style="color:#3a4152"><strong style="color:#131a28">Surveillance:</strong> Physical shadowing (tailing) the subject to document their daily routine and meetings.</span></li>
+                <li><span style="color:#3a4152"><strong style="color:#131a28">Digital Footprints:</strong> Checking social media, online activities, and public records.</span></li>
+                <li><span style="color:#3a4152"><strong style="color:#131a28">Discreet Inquiries:</strong> Interviewing neighbors, colleagues, or friends of friends without revealing our or the client's true identity.</span></li>
+                <li><span style="color:#3a4152"><strong style="color:#131a28">Sting Operations:</strong> In complex cases, we may use undercover tactics to reveal the truth.</span></li>
+              </ul>
+            </div>
+          </sc-if>
+        </div>
+
+        <div id="detail-corporate" style="border:1px solid #e0d8c4;background:#fffdf8;scroll-margin-top:96px">
+          <button type="button" onClick="{{ toggle2 }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:24px 26px;background:transparent;border:0;cursor:pointer;text-align:left" style-hover="background:#faf6ec">
+            <span style="font-family:Marcellus,Georgia,serif;font-size:clamp(19px,2.4vw,24px);color:#131a28;line-height:1.3">Corporate and Employee Background Checks</span>
+            <span style="font-family:Marcellus,Georgia,serif;font-size:26px;color:#a8862b;flex:none">{{ sign2 }}</span>
+          </button>
+          <sc-if value="{{ open2 }}" hint-placeholder-val="{{ true }}">
+            <div style="padding:0 26px 30px;display:grid;gap:22px;font-size:17px;line-height:1.7;color:#3a4152;border-top:1px solid #eee5d1">
+              <p style="margin:22px 0 0;text-wrap:pretty">Corporate and employee background checks are a critical part of the hiring process and corporate due diligence. They involve verifying the accuracy of information provided by job candidates or assessing the integrity and reputation of a business, supplier, or partner.</p>
+              <h4 style="font-family:Marcellus,Georgia,serif;font-size:20px;font-weight:400;color:#131a28;margin:0">1. Employee Background Checks (Pre-Employment Screening)</h4>
+              <p style="margin:0;text-wrap:pretty">These checks are performed on prospective employees to mitigate risks like workplace violence, fraud, theft, and negligent hiring claims. The scope of the check usually depends on the job's seniority and sensitivity.</p>
+              <div>
+                <p style="margin:0 0 10px;font-weight:700;color:#131a28">Key Verification Areas:</p>
+                <ul style="padding-left:20px;color:#c9a227;display:grid;gap:9px">
+                  <li><span style="color:#3a4152"><strong style="color:#131a28">Identity and Address Verification:</strong> Confirming the candidate's legal identity and current/previous residential addresses.</span></li>
+                  <li><span style="color:#3a4152"><strong style="color:#131a28">Educational Credentials:</strong> Contacting institutions to verify degrees, diplomas, and dates of attendance to prevent resume padding.</span></li>
+                  <li><span style="color:#3a4152"><strong style="color:#131a28">Employment History:</strong> Confirming past job titles, dates of employment, and sometimes reasons for leaving. This helps identify undisclosed gaps in employment.</span></li>
+                  <li><span style="color:#3a4152"><strong style="color:#131a28">Criminal Records:</strong> Searching national, state, and local court records for convictions.</span></li>
+                  <li><span style="color:#3a4152"><strong style="color:#131a28">Reference Checks:</strong> Contacting provided references to gain insight into the candidate's work ethic and character.</span></li>
+                </ul>
+              </div>
+              <h4 style="font-family:Marcellus,Georgia,serif;font-size:20px;font-weight:400;color:#131a28;margin:0">2. Corporate Background Checks (Due Diligence)</h4>
+              <p style="margin:0;text-wrap:pretty">These checks focus on the integrity, stability, and reputation of a company or its key executives, often before mergers, acquisitions, or significant investments.</p>
+              <div>
+                <p style="margin:0 0 10px;font-weight:700;color:#131a28">Key Verification Areas:</p>
+                <ul style="padding-left:20px;color:#c9a227;display:grid;gap:9px">
+                  <li><span style="color:#3a4152"><strong style="color:#131a28">Litigation History:</strong> Reviewing past and pending lawsuits involving the company, its subsidiaries, or its directors/officers.</span></li>
+                  <li><span style="color:#3a4152"><strong style="color:#131a28">Regulatory Compliance:</strong> Checking for regulatory fines, penalties, or violations issued by governing bodies.</span></li>
+                  <li><span style="color:#3a4152"><strong style="color:#131a28">Financial Stability:</strong> Analyzing public financial statements.</span></li>
+                  <li><span style="color:#3a4152"><strong style="color:#131a28">Reputation and Media Check:</strong> Searching public records, news articles, and social media for negative press, ethical issues, or controversies.</span></li>
+                  <li><span style="color:#3a4152"><strong style="color:#131a28">Corporate Structure and Ownership:</strong> Verifying the legal structure, main shareholders, and beneficial ownership to identify potential conflicts of interest.</span></li>
+                  <li><span style="color:#3a4152"><strong style="color:#131a28">Key Executive Integrity:</strong> Comprehensive background checks on the company's founders, CEOs, and senior management, similar to high level employee screening (criminal, financial, professional history).</span></li>
+                </ul>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+
+        <div id="detail-surveillance" style="border:1px solid #e0d8c4;background:#fffdf8;scroll-margin-top:96px">
+          <button type="button" onClick="{{ toggle3 }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:24px 26px;background:transparent;border:0;cursor:pointer;text-align:left" style-hover="background:#faf6ec">
+            <span style="font-family:Marcellus,Georgia,serif;font-size:clamp(19px,2.4vw,24px);color:#131a28;line-height:1.3">Surveillance and Evidence Collection</span>
+            <span style="font-family:Marcellus,Georgia,serif;font-size:26px;color:#a8862b;flex:none">{{ sign3 }}</span>
+          </button>
+          <sc-if value="{{ open3 }}" hint-placeholder-val="{{ true }}">
+            <div style="padding:0 26px 30px;display:grid;gap:22px;font-size:17px;line-height:1.7;color:#3a4152;border-top:1px solid #eee5d1">
+              <p style="margin:22px 0 0;text-wrap:pretty">Surveillance and evidence collection are the core of private and professional investigations. These processes involve the discreet observation of people, places, or activities to gather factual, undeniable proof that can be used in personal, corporate, or legal settings.</p>
+              <div>
+                <p style="margin:0 0 10px;font-weight:700;color:#131a28">Objectives of Corporate and Employee Background Checks:</p>
+                <ul style="padding-left:20px;color:#c9a227;display:grid;gap:9px">
+                  <li><span style="color:#3a4152"><strong style="color:#131a28">Verifying Credentials:</strong> Confirming the accuracy of information provided on a resume or job application (employment history, educational degrees).</span></li>
+                  <li><span style="color:#3a4152"><strong style="color:#131a28">Workplace Safety:</strong> Identifying any history of criminal activity, violence, or substance abuse to protect existing employees and customers.</span></li>
+                  <li><span style="color:#3a4152"><strong style="color:#131a28">Financial Integrity:</strong> Checking credit history or financial misconduct for roles that involve handling money or sensitive financial data (accounting, executive positions).</span></li>
+                  <li><span style="color:#3a4152"><strong style="color:#131a28">Regulatory Compliance:</strong> Meeting legal and industry specific requirements, especially in regulated sectors like finance, healthcare, and government.</span></li>
+                  <li><span style="color:#3a4152"><strong style="color:#131a28">Preventing Fraud:</strong> Avoiding costly hiring mistakes, employee theft, or embezzlement.</span></li>
+                </ul>
+              </div>
+              <h4 style="font-family:Marcellus,Georgia,serif;font-size:20px;font-weight:400;color:#131a28;margin:0">Key Types of Background Checks</h4>
+              <ul style="padding-left:20px;color:#c9a227;display:grid;gap:9px;margin:0">
+                <li><span style="color:#3a4152"><strong style="color:#131a28">Identity Verification:</strong> Confirms the candidate's legal identity using documents like a government ID (Aadhaar, Passport) and checks against national watchlists.</span></li>
+                <li><span style="color:#3a4152"><strong style="color:#131a28">Address Verification:</strong> Confirms current and/or permanent residential addresses.</span></li>
+                <li><span style="color:#3a4152"><strong style="color:#131a28">Employment History Verification:</strong> Contacting previous employers (often HR departments) to confirm job titles, dates of employment, and sometimes the reason for leaving or overall work performance.</span></li>
+                <li><span style="color:#3a4152"><strong style="color:#131a28">Educational Verification:</strong> Contacting schools, colleges, and universities to verify the degrees, certifications, and dates of attendance listed by the candidate. This is crucial for roles requiring specialized qualifications.</span></li>
+                <li><span style="color:#3a4152"><strong style="color:#131a28">Criminal Records Check:</strong> Searching local, state, and national public records databases for any history of convictions, arrests, or pending criminal cases.</span></li>
+                <li><span style="color:#3a4152"><strong style="color:#131a28">Professional Licenses and Certifications:</strong> Verifying that professional licenses (doctors, lawyers, engineers) are valid, current, and have no sanctions or disciplinary actions against them.</span></li>
+                <li><span style="color:#3a4152"><strong style="color:#131a28">Reference Checks:</strong> Contacting the professional references provided by the candidate to gain subjective insights into their work ethic, competence, and behavior.</span></li>
+              </ul>
+              <h4 style="font-family:Marcellus,Georgia,serif;font-size:20px;font-weight:400;color:#131a28;margin:0">The Verification Process (General Steps)</h4>
+              <ul style="padding-left:20px;color:#c9a227;display:grid;gap:9px;margin:0">
+                <li><span style="color:#3a4152"><strong style="color:#131a28">Conditional Offer:</strong> The company usually extends a conditional job offer first, contingent upon the successful completion of the background check.</span></li>
+                <li><span style="color:#3a4152"><strong style="color:#131a28">Reporting and Review:</strong> A detailed report is compiled. The employer reviews the findings against their internal hiring criteria.</span></li>
+              </ul>
+            </div>
+          </sc-if>
+        </div>
+
+        <div id="detail-tracing" style="border:1px solid #e0d8c4;background:#fffdf8;scroll-margin-top:96px">
+          <button type="button" onClick="{{ toggle4 }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:24px 26px;background:transparent;border:0;cursor:pointer;text-align:left" style-hover="background:#faf6ec">
+            <span style="font-family:Marcellus,Georgia,serif;font-size:clamp(19px,2.4vw,24px);color:#131a28;line-height:1.3">Tracing Loan Defaulters and Recovery Support</span>
+            <span style="font-family:Marcellus,Georgia,serif;font-size:26px;color:#a8862b;flex:none">{{ sign4 }}</span>
+          </button>
+          <sc-if value="{{ open4 }}" hint-placeholder-val="{{ true }}">
+            <div style="padding:0 26px 30px;display:grid;gap:20px;font-size:17px;line-height:1.7;color:#3a4152;border-top:1px solid #eee5d1">
+              <p style="margin:22px 0 0;text-wrap:pretty">We handle cases related to tracing loan defaulters who are currently untraceable and are not paying their loan EMIs. Our team investigates, traces, and submits a detailed report to the concerned bank with verified information regarding the defaulter's whereabouts and status.</p>
+              <p style="margin:0;text-wrap:pretty">Our professional fees for tracing services are charged as per the scope and complexity of the assignment. In case the bank also requires assistance with recovery of funds, the approach and execution process would differ and will be handled on a case to case basis depending upon the nature of the matter. For tracing only assignments, we charge an advance of 50 percent of the mutually agreed professional fees at the time of assignment confirmation.</p>
+            </div>
+          </sc-if>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="achievements" style="background:#0b1220;color:#e6e1d6;padding:100px 20px;scroll-margin-top:80px">
+    <div style="max-width:1100px;margin:0 auto">
+      <span style="font-size:13px;letter-spacing:0.3em;text-transform:uppercase;color:#c9a227">Recognition</span>
+      <h2 style="font-family:Marcellus,Georgia,serif;font-size:clamp(30px,4.4vw,46px);line-height:1.15;margin:14px 0 0;font-weight:400">Our Applause and Achievements</h2>
+      <div style="width:70px;height:2px;background:#c9a227;margin:26px 0 30px"></div>
+      <p style="font-size:19px;line-height:1.75;color:#bdb7a8;margin:0 0 46px;max-width:840px;text-wrap:pretty">Radiant Detective Agency has earned strong appreciation from clients, legal professionals, and corporate partners for its commitment to excellence. Our work has been applauded for:</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px">
+        <div style="display:flex;gap:16px;align-items:flex-start;padding:24px;border:1px solid rgba(201,162,39,0.25);background:#101827">
+          <span style="color:#c9a227;font-size:20px;line-height:1.2;flex:none">&#10003;</span>
+          <span style="font-size:17px;line-height:1.55">High success rate in complex cases</span>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start;padding:24px;border:1px solid rgba(201,162,39,0.25);background:#101827">
+          <span style="color:#c9a227;font-size:20px;line-height:1.2;flex:none">&#10003;</span>
+          <span style="font-size:17px;line-height:1.55">Strict confidentiality and ethical practices</span>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start;padding:24px;border:1px solid rgba(201,162,39,0.25);background:#101827">
+          <span style="color:#c9a227;font-size:20px;line-height:1.2;flex:none">&#10003;</span>
+          <span style="font-size:17px;line-height:1.55">Timely and accurate reporting</span>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start;padding:24px;border:1px solid rgba(201,162,39,0.25);background:#101827">
+          <span style="color:#c9a227;font-size:20px;line-height:1.2;flex:none">&#10003;</span>
+          <span style="font-size:17px;line-height:1.55">Use of advanced tools and technology</span>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start;padding:24px;border:1px solid rgba(201,162,39,0.25);background:#101827">
+          <span style="color:#c9a227;font-size:20px;line-height:1.2;flex:none">&#10003;</span>
+          <span style="font-size:17px;line-height:1.55">Professionalism and transparent communication</span>
+        </div>
+      </div>
+
+      <blockquote style="margin:46px 0 0;padding:34px 34px 34px 32px;border-left:3px solid #c9a227;background:rgba(201,162,39,0.07)">
+        <p style="font-family:Marcellus,Georgia,serif;font-size:clamp(20px,2.6vw,26px);line-height:1.55;color:#f2ecdd;margin:0;text-wrap:pretty">This consistent trust from clients is our greatest recognition. Every solved case, every satisfied client, and every partnership built on integrity motivates us to continue delivering exemplary investigative services.</p>
+      </blockquote>
+    </div>
+  </section>
+
+  <section id="contact" style="background:#f7f3ea;padding:100px 20px;scroll-margin-top:70px">
+    <div style="max-width:1100px;margin:0 auto">
+      <span style="font-size:13px;letter-spacing:0.3em;text-transform:uppercase;color:#a8862b">Contact</span>
+      <h2 style="font-family:Marcellus,Georgia,serif;font-size:clamp(30px,4.4vw,46px);line-height:1.15;margin:14px 0 0;font-weight:400;color:#131a28">For Any Queries</h2>
+      <div style="width:70px;height:2px;background:#c9a227;margin:26px 0 44px"></div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;align-items:start">
+        <div style="display:grid;gap:26px">
+          <div>
+            <p style="font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:#8a8272;margin:0 0 6px">Contact person</p>
+            <p style="font-family:Marcellus,Georgia,serif;font-size:26px;color:#131a28;margin:0">Ajay Rastogi</p>
+          </div>
+          <div>
+            <p style="font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:#8a8272;margin:0 0 6px">Phone</p>
+            <a href="tel:+919958231007" style="font-size:21px;font-weight:500">+91 9958231007</a>
+          </div>
+          <div>
+            <p style="font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:#8a8272;margin:0 0 6px">Email</p>
+            <a href="mailto:radiantdetectiveinvestigations@gmail.com" style="font-size:17px;font-weight:500;word-break:break-all">radiantdetectiveinvestigations@gmail.com</a>
+          </div>
+          <p style="font-size:15px;line-height:1.65;color:#5d6474;margin:0;max-width:380px">All enquiries are treated as strictly confidential. All services are conducted through ethical and legal investigation methods.</p>
+        </div>
+
+        <form onSubmit="{{ submit }}" style="display:grid;gap:16px;background:#fffdf8;border:1px solid #e0d8c4;padding:32px">
+          <label style="display:grid;gap:7px;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#5d6474">Name
+            <input type="text" name="name" style="padding:13px 14px;border:1px solid #ddd4bf;background:#fff;font-size:16px;color:#131a28;text-transform:none;letter-spacing:normal" style-focus="outline:none;border-color:#c9a227">
+          </label>
+          <label style="display:grid;gap:7px;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#5d6474">Email
+            <input type="email" name="email" style="padding:13px 14px;border:1px solid #ddd4bf;background:#fff;font-size:16px;color:#131a28;text-transform:none;letter-spacing:normal" style-focus="outline:none;border-color:#c9a227">
+          </label>
+          <label style="display:grid;gap:7px;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#5d6474">Phone
+            <input type="tel" name="phone" style="padding:13px 14px;border:1px solid #ddd4bf;background:#fff;font-size:16px;color:#131a28;text-transform:none;letter-spacing:normal" style-focus="outline:none;border-color:#c9a227">
+          </label>
+          <label style="display:grid;gap:7px;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#5d6474">Message
+            <textarea name="message" rows="5" style="padding:13px 14px;border:1px solid #ddd4bf;background:#fff;font-size:16px;color:#131a28;resize:vertical;text-transform:none;letter-spacing:normal" style-focus="outline:none;border-color:#c9a227"></textarea>
+          </label>
+          <button type="submit" style="margin-top:6px;background:#0b1220;color:#f2ecdd;border:0;padding:16px;font-size:14px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;cursor:pointer" style-hover="background:#c9a227;color:#0a0f1a">Submit</button>
+          <p style="margin:0;font-size:14px;color:#7d6420;min-height:20px">{{ formNote }}</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:#070b13;color:#b9b3a4;padding:70px 20px 34px">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:40px">
+      <div>
+        <p style="font-family:Marcellus,Georgia,serif;font-size:22px;color:#f2ecdd;margin:0 0 10px;letter-spacing:0.04em">Radiant Detective Agency</p>
+        <p style="font-family:Marcellus,Georgia,serif;font-size:17px;color:#c9a227;margin:0">Your Trusted Eyes When It Matters Most.</p>
+      </div>
+      <div>
+        <p style="font-size:13px;letter-spacing:0.2em;text-transform:uppercase;color:#c9a227;margin:0 0 14px">Quick links</p>
+        <div style="display:grid;gap:9px">
+          <a href="#about" style="color:#b9b3a4;font-size:15px" style-hover="color:#c9a227">About</a>
+          <a href="#services" style="color:#b9b3a4;font-size:15px" style-hover="color:#c9a227">Services</a>
+          <a href="#achievements" style="color:#b9b3a4;font-size:15px" style-hover="color:#c9a227">Achievements</a>
+          <a href="#contact" style="color:#b9b3a4;font-size:15px" style-hover="color:#c9a227">Contact</a>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:13px;letter-spacing:0.2em;text-transform:uppercase;color:#c9a227;margin:0 0 14px">Contact</p>
+        <div style="display:grid;gap:9px;font-size:15px">
+          <span>Ajay Rastogi</span>
+          <a href="tel:+919958231007" style="color:#b9b3a4" style-hover="color:#c9a227">+91 9958231007</a>
+          <a href="mailto:radiantdetectiveinvestigations@gmail.com" style="color:#b9b3a4;word-break:break-all" style-hover="color:#c9a227">radiantdetectiveinvestigations@gmail.com</a>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1200px;margin:46px auto 0;padding-top:24px;border-top:1px solid rgba(201,162,39,0.22);display:grid;gap:8px">
+      <p style="margin:0;font-size:14px;color:#8d8778">Note: all services are conducted through ethical and legal investigation methods.</p>
+      <p style="margin:0;font-size:14px;color:#8d8778">Copyright 2026 Radiant Detective Agency. All rights reserved.</p>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { open: { 1: true, 2: false, 3: false, 4: false }, formNote: "", isMobile: false, menuOpen: false };
+
+  toggle(n) {
+    this.setState(s => ({ open: { ...s.open, [n]: !s.open[n] } }));
+  }
+
+  open(n) {
+    this.setState(s => ({ open: { ...s.open, [n]: true } }));
+  }
+
+  componentDidMount() {
+    this._onHash = () => {
+      const map = { "#detail-matrimonial": 1, "#detail-corporate": 2, "#detail-surveillance": 3, "#detail-tracing": 4 };
+      const n = map[window.location.hash];
+      if (n) this.open(n);
+    };
+    window.addEventListener("hashchange", this._onHash);
+    this._onHash();
+    this._onResize = () => {
+      const m = window.innerWidth < 860;
+      if (m !== this.state.isMobile) this.setState({ isMobile: m, menuOpen: false });
+    };
+    window.addEventListener("resize", this._onResize);
+    this._onResize();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("hashchange", this._onHash);
+    window.removeEventListener("resize", this._onResize);
+  }
+
+  renderVals() {
+    const o = this.state.open;
+    const mob = this.state.isMobile;
+    const menuOpen = this.state.menuOpen;
+    return {
+      showBurger: mob,
+      navStyle: mob
+        ? { display: menuOpen ? "grid" : "none", gap: "4px", position: "absolute", left: 0, right: 0, top: "100%", background: "#080d18", borderTop: "1px solid rgba(201,162,39,0.35)", padding: "12px 20px 20px" }
+        : { display: "flex", alignItems: "center", gap: "28px" },
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      burgerLabel: menuOpen ? "\u2715" : "\u2261",
+      open1: !!o[1], open2: !!o[2], open3: !!o[3], open4: !!o[4],
+      sign1: o[1] ? "\u2212" : "+",
+      sign2: o[2] ? "\u2212" : "+",
+      sign3: o[3] ? "\u2212" : "+",
+      sign4: o[4] ? "\u2212" : "+",
+      toggle1: () => this.toggle(1),
+      toggle2: () => this.toggle(2),
+      toggle3: () => this.toggle(3),
+      toggle4: () => this.toggle(4),
+      formNote: this.state.formNote,
+      submit: (e) => {
+        e.preventDefault();
+        this.setState({ formNote: "Thank you. Your enquiry has been noted and will be handled confidentially." });
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

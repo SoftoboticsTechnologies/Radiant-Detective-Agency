@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>About | Radiant Detective Agency</title>
+<meta name="description" content="Radiant Detective Agency has delivered ethical, precise private investigation since 2006, combining on ground fieldwork with advanced surveillance and digital techniques.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #f4f1ea; font-family: 'Public Sans', Helvetica, Arial, sans-serif; }
+  * { box-sizing: border-box; }
+  a { color: #8f7229; }
+  a:hover { color: #6d571f; }
+</style>
+</helmet>
+<div style="width:100%;color:#1a1e24">
+  <dc-import name="SiteHeader" active="about" hint-size="100%,120px"></dc-import>
+
+  <section style="position:relative;overflow:hidden;background:#0b0f14 url('assets/hero-bg.png') center right / cover no-repeat;color:#f5f2ec;padding:78px 24px 70px">
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg, rgba(7,10,14,0.95) 0%, rgba(7,10,14,0.84) 36%, rgba(7,10,14,0.5) 68%, rgba(7,10,14,0.42) 100%);pointer-events:none"></div>
+    <div style="position:relative;max-width:1240px;margin:0 auto;display:grid;gap:22px">
+      <span style="font-size:11.5px;letter-spacing:0.32em;text-transform:uppercase;color:#b08d3f">About</span>
+      <h1 style="font-family:'EB Garamond',Georgia,serif;font-size:clamp(34px,5.6vw,60px);line-height:1.08;margin:0;font-weight:500;max-width:760px;text-wrap:pretty">About Radiant Detective Agency</h1>
+      <div style="width:64px;height:1px;background:#b08d3f"></div>
+    </div>
+  </section>
+
+  <section style="background:#f4f1ea;padding:88px 24px">
+    <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:64px;align-items:start">
+      <div style="display:grid;gap:26px;max-width:660px">
+        <p style="font-size:19px;line-height:1.8;color:#3c424b;margin:0;text-wrap:pretty">Radiant Detective Agency stands as a trusted name in the field of private investigation, known for its professionalism, precision, and unwavering commitment to truth. Since day one in 2006, we have built a reputation for delivering clear, actionable results through ethical investigation methods and advanced surveillance techniques.</p>
+        <p style="font-size:19px;line-height:1.8;color:#3c424b;margin:0;text-wrap:pretty">Our work serves individuals as well as businesses: families verifying a prospective match, employers screening candidates, companies conducting due diligence, and banks tracing untraceable defaulters. Every assignment is handled discreetly, documented carefully, and reported in a form our clients can act on.</p>
+      </div>
+      <div style="display:grid;gap:0">
+        <p style="font-size:11.5px;letter-spacing:0.3em;text-transform:uppercase;color:#8f7229;margin:0 0 22px">How we work</p>
+        <div style="border-top:1px solid #ddd7c8">
+          <div style="padding:24px 0;border-bottom:1px solid #ddd7c8">
+            <p style="font-family:'EB Garamond',Georgia,serif;font-size:23px;color:#14181e;margin:0 0 8px">Surveillance</p>
+            <p style="margin:0;font-size:16.5px;line-height:1.7;color:#565c66">Physical shadowing (tailing) the subject to document their daily routine and meetings.</p>
+          </div>
+          <div style="padding:24px 0;border-bottom:1px solid #ddd7c8">
+            <p style="font-family:'EB Garamond',Georgia,serif;font-size:23px;color:#14181e;margin:0 0 8px">Digital Footprints</p>
+            <p style="margin:0;font-size:16.5px;line-height:1.7;color:#565c66">Checking social media, online activities, and public records.</p>
+          </div>
+          <div style="padding:24px 0;border-bottom:1px solid #ddd7c8">
+            <p style="font-family:'EB Garamond',Georgia,serif;font-size:23px;color:#14181e;margin:0 0 8px">Discreet Inquiries</p>
+            <p style="margin:0;font-size:16.5px;line-height:1.7;color:#565c66">Interviewing neighbors, colleagues, or friends of friends without revealing our or the client's true identity.</p>
+          </div>
+          <div style="padding:24px 0;border-bottom:1px solid #ddd7c8">
+            <p style="font-family:'EB Garamond',Georgia,serif;font-size:23px;color:#14181e;margin:0 0 8px">Sting Operations</p>
+            <p style="margin:0;font-size:16.5px;line-height:1.7;color:#565c66">In complex cases, we may use undercover tactics to reveal the truth.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#0e1116;color:#f4f1ea;padding:80px 24px">
+    <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:28px;align-items:center;justify-content:space-between">
+      <h2 style="font-family:'EB Garamond',Georgia,serif;font-size:clamp(26px,3.4vw,38px);margin:0;font-weight:500;max-width:560px;line-height:1.25">See the full range of investigative services</h2>
+      <a href="Services.dc.html" style="background:#b08d3f;color:#0e1116;padding:17px 40px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;font-size:12.5px;text-decoration:none" style-hover="background:#d8b567">Our Services</a>
+    </div>
+  </section>
+
+  <dc-import name="FloatingContact" hint-size="100%,0px"></dc-import>
+  <dc-import name="SiteFooter" hint-size="100%,340px"></dc-import>
+</div>
+</x-dc>
+</body>
+</html>

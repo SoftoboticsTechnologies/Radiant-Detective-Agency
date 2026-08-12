@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Contact | Radiant Detective Agency</title>
+<meta name="description" content="Contact Ajay Rastogi at Radiant Detective Agency: +91 9958231007 or radiantdetectiveinvestigations@gmail.com. All enquiries are strictly confidential.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #f4f1ea; font-family: 'Public Sans', Helvetica, Arial, sans-serif; }
+  * { box-sizing: border-box; }
+  a { color: #8f7229; }
+  a:hover { color: #6d571f; }
+  input, textarea, button { font-family: 'Public Sans', Helvetica, Arial, sans-serif; }
+</style>
+</helmet>
+<div style="width:100%;color:#1a1e24">
+  <dc-import name="SiteHeader" active="contact" hint-size="100%,120px"></dc-import>
+
+  <section style="position:relative;overflow:hidden;background:#0b0f14 url('assets/hero-bg.png') center right / cover no-repeat;color:#f5f2ec;padding:78px 24px 70px">
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg, rgba(7,10,14,0.95) 0%, rgba(7,10,14,0.84) 36%, rgba(7,10,14,0.5) 68%, rgba(7,10,14,0.42) 100%);pointer-events:none"></div>
+    <div style="position:relative;max-width:1240px;margin:0 auto;display:grid;gap:22px">
+      <span style="font-size:11.5px;letter-spacing:0.32em;text-transform:uppercase;color:#b08d3f">Contact</span>
+      <h1 style="font-family:'EB Garamond',Georgia,serif;font-size:clamp(34px,5.6vw,60px);line-height:1.08;margin:0;font-weight:500">For Any Queries</h1>
+      <div style="width:64px;height:1px;background:#b08d3f"></div>
+    </div>
+  </section>
+
+  <section style="background:#f4f1ea;padding:88px 24px">
+    <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:64px;align-items:start">
+      <div style="display:grid;gap:0;max-width:480px">
+        <div style="border-top:1px solid #ddd7c8;padding:22px 0;border-bottom:1px solid #ddd7c8">
+          <p style="font-size:11.5px;letter-spacing:0.24em;text-transform:uppercase;color:#8f7229;margin:0 0 8px">Contact person</p>
+          <p style="font-family:'EB Garamond',Georgia,serif;font-size:29px;color:#14181e;margin:0">Ajay Rastogi</p>
+        </div>
+        <div style="padding:22px 0;border-bottom:1px solid #ddd7c8">
+          <p style="font-size:11.5px;letter-spacing:0.24em;text-transform:uppercase;color:#8f7229;margin:0 0 8px">Phone</p>
+          <a href="tel:+919958231007" style="font-family:'EB Garamond',Georgia,serif;font-size:27px;text-decoration:none">+91 9958231007</a>
+        </div>
+        <div style="padding:22px 0;border-bottom:1px solid #ddd7c8">
+          <p style="font-size:11.5px;letter-spacing:0.24em;text-transform:uppercase;color:#8f7229;margin:0 0 8px">Email</p>
+          <a href="mailto:radiantdetectiveinvestigations@gmail.com" style="font-size:17px;font-weight:500;word-break:break-all;text-decoration:none">radiantdetectiveinvestigations@gmail.com</a>
+        </div>
+        <div style="padding:26px 0;display:grid;gap:16px">
+          <p style="font-size:16.5px;line-height:1.75;color:#565c66;margin:0">All enquiries are treated as strictly confidential. All services are conducted through ethical and legal investigation methods.</p>
+          <p style="font-size:16.5px;line-height:1.75;color:#565c66;margin:0">For corporate and bank assignments, kindly share the scope and expected commencement date so that we may allocate and brief our team accordingly.</p>
+        </div>
+      </div>
+
+      <form onSubmit="{{ submit }}" style="display:grid;gap:26px;background:#0e1116;padding:44px 40px">
+        <p style="font-family:'EB Garamond',Georgia,serif;font-size:26px;color:#f4f1ea;margin:0">Send a confidential enquiry</p>
+        <label style="display:grid;gap:9px;font-size:11.5px;letter-spacing:0.22em;text-transform:uppercase;color:#9a9da3">Name
+          <input type="text" name="name" required style="padding:12px 0;border:0;border-bottom:1px solid rgba(255,255,255,0.22);background:transparent;font-size:17px;color:#f4f1ea;text-transform:none;letter-spacing:normal" style-focus="outline:none;border-bottom-color:#b08d3f">
+        </label>
+        <label style="display:grid;gap:9px;font-size:11.5px;letter-spacing:0.22em;text-transform:uppercase;color:#9a9da3">Email
+          <input type="email" name="email" required style="padding:12px 0;border:0;border-bottom:1px solid rgba(255,255,255,0.22);background:transparent;font-size:17px;color:#f4f1ea;text-transform:none;letter-spacing:normal" style-focus="outline:none;border-bottom-color:#b08d3f">
+        </label>
+        <label style="display:grid;gap:9px;font-size:11.5px;letter-spacing:0.22em;text-transform:uppercase;color:#9a9da3">Phone
+          <input type="tel" name="phone" style="padding:12px 0;border:0;border-bottom:1px solid rgba(255,255,255,0.22);background:transparent;font-size:17px;color:#f4f1ea;text-transform:none;letter-spacing:normal" style-focus="outline:none;border-bottom-color:#b08d3f">
+        </label>
+        <label style="display:grid;gap:9px;font-size:11.5px;letter-spacing:0.22em;text-transform:uppercase;color:#9a9da3">Message
+          <textarea name="message" rows="5" style="padding:12px 0;border:0;border-bottom:1px solid rgba(255,255,255,0.22);background:transparent;font-size:17px;color:#f4f1ea;resize:vertical;text-transform:none;letter-spacing:normal" style-focus="outline:none;border-bottom-color:#b08d3f"></textarea>
+        </label>
+        <button type="submit" style="margin-top:6px;background:#b08d3f;color:#0e1116;border:0;padding:17px;font-size:12.5px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer" style-hover="background:#d8b567">Submit</button>
+        <p style="margin:0;font-size:14px;color:#d8b567;min-height:20px">{{ formNote }}</p>
+      </form>
+    </div>
+  </section>
+
+  <dc-import name="FloatingContact" hint-size="100%,0px"></dc-import>
+  <dc-import name="SiteFooter" hint-size="100%,340px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { formNote: "" };
+  renderVals() {
+    return {
+      formNote: this.state.formNote,
+      submit: (e) => {
+        e.preventDefault();
+        this.setState({ formNote: "Thank you. Your enquiry has been noted and will be handled confidentially." });
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

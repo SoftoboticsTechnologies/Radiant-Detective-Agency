@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  @keyframes dcMenuIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</helmet>
+<div>
+  <div ref="{{ shellRef }}" style="{{ shellStyle }}">
+    <header style="font-family:'Public Sans',Helvetica,Arial,sans-serif;background:#0b0f14;border-bottom:1px solid rgba(201,160,74,0.18);width:100%;overflow-x:clip">
+      <div style="{{ rowStyle }}">
+        <a href="index.dc.html" style="{{ brandStyle }}">
+          <img src="assets/logo.png" alt="Radiant Detective Agency emblem" style="{{ logoStyle }}">
+          <span style="display:grid;gap:3px;min-width:0">
+            <span style="{{ brandNameStyle }}">Radiant Detective Agency</span>
+            <span style="{{ brandSubStyle }}">Private Investigations</span>
+          </span>
+        </a>
+        <nav style="{{ navStyle }}">
+          <a href="index.dc.html" style="{{ linkHome }}" style-hover="color:#d9b567">Home</a>
+          <a href="About.dc.html" style="{{ linkAbout }}" style-hover="color:#d9b567">About</a>
+          <a href="Services.dc.html" style="{{ linkServices }}" style-hover="color:#d9b567">Services</a>
+          <a href="Achievements.dc.html" style="{{ linkAchievements }}" style-hover="color:#d9b567">Achievements</a>
+          <a href="Contact.dc.html" style="{{ linkContact }}" style-hover="color:#d9b567">Contact</a>
+        </nav>
+        <a href="tel:+919958231007" style="{{ callStyle }}" style-hover="background:linear-gradient(180deg,#e2c078,#c9a04a);box-shadow:0 8px 22px rgba(201,160,74,0.32)">
+          <span style="width:26px;height:26px;border-radius:50%;background:rgba(11,15,20,0.14);display:flex;align-items:center;justify-content:center;flex:none">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M6.5 3.5h3l1.5 4-2 1.5a11 11 0 006 6l1.5-2 4 1.5v3c0 1-.8 1.8-1.8 1.7C11.4 19.5 4.5 12.6 3.8 5.3 3.7 4.3 4.5 3.5 5.5 3.5z"></path></svg>
+          </span>
+          <span style="display:grid;gap:1px;text-align:left">
+            <span style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;opacity:0.7">Call now</span>
+            <span style="font-size:15px;font-weight:600;letter-spacing:0.02em;white-space:nowrap">9958231007</span>
+          </span>
+        </a>
+        <button type="button" onClick="{{ toggleMenu }}" aria-label="Menu" style="{{ burgerStyle }}">
+          <span style="display:grid;gap:5px;width:20px">
+            <span style="{{ bar1 }}"></span>
+            <span style="{{ bar2 }}"></span>
+            <span style="{{ bar3 }}"></span>
+          </span>
+        </button>
+      </div>
+      <div style="{{ panelStyle }}">
+        <div style="display:grid;padding:6px 18px 20px">
+          <a href="index.dc.html" onClick="{{ closeMenu }}" style="{{ mLinkHome }}" style-hover="color:#d9b567">Home</a>
+          <a href="About.dc.html" onClick="{{ closeMenu }}" style="{{ mLinkAbout }}" style-hover="color:#d9b567">About</a>
+          <a href="Services.dc.html" onClick="{{ closeMenu }}" style="{{ mLinkServices }}" style-hover="color:#d9b567">Services</a>
+          <a href="Achievements.dc.html" onClick="{{ closeMenu }}" style="{{ mLinkAchievements }}" style-hover="color:#d9b567">Achievements</a>
+          <a href="Contact.dc.html" onClick="{{ closeMenu }}" style="{{ mLinkContact }}" style-hover="color:#d9b567">Contact</a>
+          <a href="tel:+919958231007" onClick="{{ closeMenu }}" style="display:flex;align-items:center;justify-content:center;gap:10px;margin-top:18px;background:linear-gradient(180deg,#d9b567,#c9a04a);color:#0b0f14;padding:15px 20px;text-decoration:none;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;font-weight:600" style-hover="background:linear-gradient(180deg,#e2c078,#c9a04a)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M6.5 3.5h3l1.5 4-2 1.5a11 11 0 006 6l1.5-2 4 1.5v3c0 1-.8 1.8-1.8 1.7C11.4 19.5 4.5 12.6 3.8 5.3 3.7 4.3 4.5 3.5 5.5 3.5z"></path></svg>
+            Call now: 9958231007
+          </a>
+        </div>
+      </div>
+    </header>
+  </div>
+  <div style="{{ spacerStyle }}"></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;about&quot;,&quot;services&quot;,&quot;achievements&quot;,&quot;contact&quot;],&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { w: 1440, menuOpen: false, shellH: 65 };
+
+  componentDidMount() {
+    this._measure = () => {
+      const w = window.innerWidth;
+      const h = this._el ? this._el.offsetHeight : this.state.shellH;
+      const next = {};
+      if (w !== this.state.w) {
+        next.w = w;
+        if (w > 768 && this.state.menuOpen) next.menuOpen = false;
+      }
+      if (h && Math.abs(h - this.state.shellH) > 1) next.shellH = h;
+      if (Object.keys(next).length) this.setState(next);
+    };
+    this._onDocClick = (e) => {
+      if (!this.state.menuOpen) return;
+      if (e.timeStamp - (this._toggledAt || 0) < 350) return;
+      if (this._el && this._el.contains(e.target)) return;
+      this.setState({ menuOpen: false });
+    };
+    window.addEventListener("resize", this._measure);
+    document.addEventListener("click", this._onDocClick);
+    this._measure();
+    this._t = setTimeout(this._measure, 400);
+  }
+
+  componentDidUpdate() {
+    if (!this._el) return;
+    const row = this._el.querySelector("header > div");
+    const h = row ? row.offsetHeight + 1 : this._el.offsetHeight;
+    if (h && Math.abs(h - this.state.shellH) > 1) this.setState({ shellH: h });
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this._measure);
+    document.removeEventListener("click", this._onDocClick);
+    clearTimeout(this._t);
+  }
+
+  get mode() {
+    const w = this.state.w;
+    if (w <= 768) return "mobile";
+    if (w <= 1024) return "tablet";
+    return "desktop";
+  }
+
+  link(name) {
+    const on = (this.props.active || "") === name;
+    return {
+      color: on ? "#d9b567" : "#d8dade",
+      fontSize: "13px",
+      letterSpacing: "0.06em",
+      textDecoration: "none",
+      padding: "5px 0",
+      whiteSpace: "nowrap",
+      borderBottom: on ? "2px solid #c9a04a" : "2px solid transparent"
+    };
+  }
+
+  mLink(name) {
+    const on = (this.props.active || "") === name;
+    return {
+      color: on ? "#d9b567" : "#f0ede6",
+      fontSize: "15px",
+      letterSpacing: "0.04em",
+      textDecoration: "none",
+      padding: "15px 2px",
+      minHeight: "48px",
+      display: "flex",
+      alignItems: "center",
+      borderBottom: "1px solid rgba(255,255,255,0.07)"
+    };
+  }
+
+  renderVals() {
+    const mode = this.mode, mobile = mode === "mobile", open = this.state.menuOpen;
+    const bar = (i) => ({
+      height: "1.5px",
+      background: "#d9b567",
+      display: "block",
+      transform: open ? (i === 1 ? "translateY(6.5px) rotate(45deg)" : i === 3 ? "translateY(-6.5px) rotate(-45deg)" : "none") : "none",
+      opacity: open && i === 2 ? 0 : 1
+    });
+    return {
+      shellRef: this._setEl || (this._setEl = (el) => { if (el) this._el = el; }),
+      shellStyle: { position: "fixed", top: 0, left: 0, right: 0, zIndex: 60, width: "100%" },
+      spacerStyle: { height: this.state.shellH + "px" },
+      rowStyle: {
+        position: "relative", maxWidth: "1280px", margin: "0 auto",
+        padding: mobile ? "10px 16px" : "12px 20px",
+        display: "flex", alignItems: "center", gap: mobile ? "12px" : (mode === "tablet" ? "12px" : "16px"),
+        width: "100%"
+      },
+      brandStyle: {
+        display: "flex", alignItems: "center", gap: mobile ? "10px" : "12px",
+        color: "#f5f2ec", textDecoration: "none", flex: mobile ? "1 1 auto" : "none", minWidth: 0
+      },
+      logoStyle: {
+        width: mobile ? "38px" : "40px", height: mobile ? "38px" : "40px", flex: "none",
+        borderRadius: "50%", objectFit: "cover", border: "1px solid rgba(201,160,74,0.5)"
+      },
+      brandNameStyle: {
+        fontFamily: "'EB Garamond',Georgia,serif",
+        fontSize: mobile ? "16px" : "18px",
+        letterSpacing: "0.01em", lineHeight: 1.05,
+        maxWidth: mobile ? "none" : "190px"
+      },
+      brandSubStyle: {
+        fontSize: mobile ? "8.5px" : "9.5px", letterSpacing: "0.22em",
+        textTransform: "uppercase", color: "#8b8f96", whiteSpace: "nowrap"
+      },
+      navStyle: mobile
+        ? { display: "none" }
+        : { display: "flex", alignItems: "center", justifyContent: "center", gap: mode === "tablet" ? "18px" : "30px", flex: 1 },
+      callStyle: mobile
+        ? { display: "none" }
+        : {
+            display: "flex", alignItems: "center", gap: "11px", flex: "none",
+            background: "linear-gradient(180deg,#d9b567,#c9a04a)", color: "#0b0f14",
+            padding: mode === "tablet" ? "8px 14px 8px 10px" : "9px 20px 9px 12px",
+            textDecoration: "none", border: "1px solid rgba(255,255,255,0.18)",
+            boxShadow: "0 6px 18px rgba(201,160,74,0.22)", transition: "background .2s, box-shadow .2s"
+          },
+      burgerStyle: mobile
+        ? {
+            display: "flex", alignItems: "center", justifyContent: "center",
+            width: "46px", height: "46px", flex: "none", cursor: "pointer",
+            background: open ? "rgba(201,160,74,0.12)" : "transparent",
+            border: "1px solid rgba(201,160,74,0.5)", padding: 0
+          }
+        : { display: "none" },
+      bar1: bar(1), bar2: bar(2), bar3: bar(3),
+      panelStyle: {
+        overflow: "hidden",
+        display: mobile && open ? "block" : "none",
+        opacity: mobile && open ? 1 : 0,
+        animation: mobile && open ? "dcMenuIn .26s ease forwards" : "none",
+        pointerEvents: mobile && open ? "auto" : "none",
+        background: "#0b0f14",
+        borderTop: "1px solid rgba(201,160,74,0.25)",
+        width: "100%"
+      },
+      toggleMenu: (e) => {
+        this._toggledAt = e && e.timeStamp ? e.timeStamp : (performance.now());
+        if (e) e.stopPropagation();
+        this.setState(s => ({ menuOpen: !s.menuOpen }));
+      },
+      closeMenu: () => this.setState({ menuOpen: false }),
+      linkHome: this.link("home"),
+      linkAbout: this.link("about"),
+      linkServices: this.link("services"),
+      linkAchievements: this.link("achievements"),
+      linkContact: this.link("contact"),
+      mLinkHome: this.mLink("home"),
+      mLinkAbout: this.mLink("about"),
+      mLinkServices: this.mLink("services"),
+      mLinkAchievements: this.mLink("achievements"),
+      mLinkContact: this.mLink("contact")
+    };
+  }
+}
+</script>
+</body>
+</html>
