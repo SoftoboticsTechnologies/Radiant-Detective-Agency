@@ -14,7 +14,7 @@
 </helmet>
 <div>
   <div ref="{{ shellRef }}" style="{{ shellStyle }}">
-    <header style="font-family:'Public Sans',Helvetica,Arial,sans-serif;background:#0b0f14;border-bottom:1px solid rgba(201,160,74,0.18);width:100%;overflow-x:clip">
+    <header style="font-family:'Public Sans',Helvetica,Arial,sans-serif;background:#f5f2ec;border-bottom:1px solid rgba(201,160,74,0.3);width:100%;overflow-x:clip">
       <div style="{{ rowStyle }}">
         <a href="index.html" style="{{ brandStyle }}">
           <img src="assets/logo.png" alt="Radiant Detective Agency emblem" style="{{ logoStyle }}">
@@ -31,7 +31,7 @@
           <a href="Contact.dc.html" style="{{ linkContact }}" style-hover="color:#d9b567">Contact</a>
         </nav>
         <a href="tel:+919958231007" style="{{ callStyle }}" style-hover="background:linear-gradient(180deg,#e2c078,#c9a04a);box-shadow:0 8px 22px rgba(201,160,74,0.32)">
-          <span style="width:26px;height:26px;border-radius:50%;background:rgba(11,15,20,0.14);display:flex;align-items:center;justify-content:center;flex:none">
+          <span style="width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,0.28);display:flex;align-items:center;justify-content:center;flex:none">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M6.5 3.5h3l1.5 4-2 1.5a11 11 0 006 6l1.5-2 4 1.5v3c0 1-.8 1.8-1.8 1.7C11.4 19.5 4.5 12.6 3.8 5.3 3.7 4.3 4.5 3.5 5.5 3.5z"></path></svg>
           </span>
           <span style="display:grid;gap:1px;text-align:left">
@@ -116,7 +116,7 @@ class Component extends DCLogic {
   link(name) {
     const on = (this.props.active || "") === name;
     return {
-      color: on ? "#d9b567" : "#d8dade",
+      color: on ? "#a9822f" : "#3c424b",
       fontSize: "13px",
       letterSpacing: "0.06em",
       textDecoration: "none",
@@ -129,7 +129,7 @@ class Component extends DCLogic {
   mLink(name) {
     const on = (this.props.active || "") === name;
     return {
-      color: on ? "#d9b567" : "#f0ede6",
+      color: on ? "#a9822f" : "#1a1e24",
       fontSize: "15px",
       letterSpacing: "0.04em",
       textDecoration: "none",
@@ -137,7 +137,7 @@ class Component extends DCLogic {
       minHeight: "48px",
       display: "flex",
       alignItems: "center",
-      borderBottom: "1px solid rgba(255,255,255,0.07)"
+      borderBottom: "1px solid rgba(0,0,0,0.08)"
     };
   }
 
@@ -145,7 +145,7 @@ class Component extends DCLogic {
     const mode = this.mode, mobile = mode === "mobile", open = this.state.menuOpen;
     const bar = (i) => ({
       height: "1.5px",
-      background: "#d9b567",
+      background: "#8f7229",
       display: "block",
       transform: open ? (i === 1 ? "translateY(6.5px) rotate(45deg)" : i === 3 ? "translateY(-6.5px) rotate(-45deg)" : "none") : "none",
       opacity: open && i === 2 ? 0 : 1
@@ -162,7 +162,7 @@ class Component extends DCLogic {
       },
       brandStyle: {
         display: "flex", alignItems: "center", gap: mobile ? "10px" : "12px",
-        color: "#f5f2ec", textDecoration: "none", flex: mobile ? "1 1 auto" : "none", minWidth: 0
+        color: "#1a1e24", textDecoration: "none", flex: mobile ? "1 1 auto" : "none", minWidth: 0
       },
       logoStyle: {
         width: mobile ? "38px" : "40px", height: mobile ? "38px" : "40px", flex: "none",
@@ -176,7 +176,7 @@ class Component extends DCLogic {
       },
       brandSubStyle: {
         fontSize: mobile ? "8.5px" : "9.5px", letterSpacing: "0.22em",
-        textTransform: "uppercase", color: "#8b8f96", whiteSpace: "nowrap"
+        textTransform: "uppercase", color: "#8f7229", whiteSpace: "nowrap"
       },
       navStyle: mobile
         ? { display: "none" }
@@ -205,7 +205,7 @@ class Component extends DCLogic {
         opacity: mobile && open ? 1 : 0,
         animation: mobile && open ? "dcMenuIn .26s ease forwards" : "none",
         pointerEvents: mobile && open ? "auto" : "none",
-        background: "#0b0f14",
+        background: "#f5f2ec",
         borderTop: "1px solid rgba(201,160,74,0.25)",
         width: "100%"
       },
