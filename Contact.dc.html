@@ -9,7 +9,7 @@
 <x-dc>
 <helmet>
 <title>Contact | Radiant Detective Agency</title>
-<meta name="description" content="Contact Ajay Rastogi at Radiant Detective Agency: +91 9958231007 or radiantdetectiveinvestigations@gmail.com. All enquiries are strictly confidential.">
+<meta name="description" content="Contact Radiant Detective Agency: +91 9958231007 or radiantdetectiveinvestigations@gmail.com. All enquiries are strictly confidential.">
 <link rel="icon" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -87,7 +87,20 @@ class Component extends DCLogic {
       formNote: this.state.formNote,
       submit: (e) => {
         e.preventDefault();
-        this.setState({ formNote: "Thank you. Your enquiry has been noted and will be handled confidentially." });
+        const form = e.target;
+        const data = new FormData(form);
+        this.setState({ formNote: "Sending..." });
+        fetch("https://formsubmit.co/ajax/radiantdetectiveinvestigations@gmail.com", {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: data
+        }).then((res) => {
+          if (!res.ok) throw new Error("request failed");
+          this.setState({ formNote: "Thank you. Your enquiry has been noted and will be handled confidentially." });
+          form.reset();
+        }).catch(() => {
+          this.setState({ formNote: "Something went wrong. Please call or email us directly." });
+        });
       }
     };
   }
