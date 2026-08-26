@@ -422,12 +422,12 @@ class Component extends DCLogic {
       submit: (e) => {
         e.preventDefault();
         const form = e.target;
-        const data = new FormData(form);
+        const data = Object.fromEntries(new FormData(form));
         this.setState({ formNote: "Sending..." });
-        fetch("https://formsubmit.co/ajax/radiantdetectiveinvestigations@gmail.com", {
+        fetch("https://k5iewetbri.execute-api.ap-south-1.amazonaws.com/prod/contact", {
           method: "POST",
-          headers: { Accept: "application/json" },
-          body: data
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
         }).then((res) => {
           if (!res.ok) throw new Error("request failed");
           this.setState({ formNote: "Thank you. Your enquiry has been noted and will be handled confidentially." });
